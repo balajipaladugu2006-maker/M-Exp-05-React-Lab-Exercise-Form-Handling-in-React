@@ -1,1 +1,130 @@
 # M-Exp-05-React-Lab-Exercise-Form-Handling-in-React
+## NAME : Paladugu Venkata Balaji
+## REG NO : 2305001024
+## Aim
+To develop a simple Student Registration Form using React and handle form input values using the useState Hook.
+
+## Objectives
+1. To create a form using React.
+2. To create input fields such as Name, Register Number, and Department.
+3. To use useState() to store form data.
+4. To handle input changes using onChange.
+5. To handle form submission using onSubmit.
+6. To display submitted student details.
+# Program
+## Step 1 – Create React Project
+~~~
+npm create vite@latest react-form
+cd react-form
+npm install
+npm run dev
+~~~
+Select React as the framework and JavaScript as the variant.
+
+## Step 2 – App.jsx
+~~~
+import { useState } from "react";
+import "./App.css";
+
+function App() {
+  const [name, setName] = useState("");
+  const [registerNo, setRegisterNo] = useState("");
+  const [department, setDepartment] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    alert(
+      "Name: " + name +
+      "\nRegister Number: " + registerNo +
+      "\nDepartment: " + department
+    );
+  };
+
+  return (
+    <div className="container">
+      <h1>Student Registration Form</h1>
+
+      <form onSubmit={handleSubmit}>
+        <label>Name:</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          placeholder="Enter your name"
+          required
+        />
+
+        <label>Register Number:</label>
+        <input
+          type="text"
+          value={registerNo}
+          onChange={(event) => setRegisterNo(event.target.value)}
+          placeholder="Enter register number"
+          required
+        />
+
+        <label>Department:</label>
+        <input
+          type="text"
+          value={department}
+          onChange={(event) => setDepartment(event.target.value)}
+          placeholder="Enter department"
+          required
+        />
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+}
+
+export default App;
+~~~ 
+## Step 3 – App.css
+~~~ 
+.container {
+  width: 400px;
+  margin: 50px auto;
+  padding: 25px;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: blue;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+~~~ 
+## Output
+Entered Student Details
+<img width="1037" height="500" alt="image" src="https://github.com/user-attachments/assets/1cebfc28-3e67-431c-9792-f1e91353b1e5" />
+Submitted Details – Alert Box
+<img width="1441" height="702" alt="image" src="https://github.com/user-attachments/assets/6f3979cc-fe27-4df4-9547-bac1766bf458" />
+
+
+## Result
+Thus, a Student Registration Form was successfully created using React. Form input values were managed using the useState() Hook, input changes were handled using onChange, and form submission was handled using onSubmit. The submitted student details were successfully displayed using an alert box.
